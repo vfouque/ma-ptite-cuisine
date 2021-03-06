@@ -1,11 +1,13 @@
 import Receipe from "./components/Receipe/Receipe";
-import {RECEIPES} from './utils/data'
+import { RECEIPES } from "./utils/data";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Receipe data={RECEIPES[0]}/>
+      {RECEIPES.map((receipe, index) => (
+        <Receipe key={index} data={receipe} />
+      ))}
     </div>
   );
 }
