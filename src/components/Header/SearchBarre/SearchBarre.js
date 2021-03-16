@@ -1,13 +1,28 @@
 import React, { Component } from "react";
 
 export default class SearchBarre extends Component {
-  handleKeyDown() {
-    console.log("hello");
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchString: "",
+    };
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
+  handleKeyDown(event) {
+    console.log(event.target.value);
+    this.setState({ searchString: event.target.value });
+    this.props.onChange(event.target.value);
+  }
+
+  // handleKeyDown = () => {
+  //   this.setState({ searchString: target.value });
+  // };
+
   render() {
+    //if (this.state.searchString === RECEIPES
     return (
       <div>
-        <input onKeyDown={this.handleKeyDown} type="text" />
+        <input onChange={this.handleKeyDown} type="text" />
       </div>
     );
   }
